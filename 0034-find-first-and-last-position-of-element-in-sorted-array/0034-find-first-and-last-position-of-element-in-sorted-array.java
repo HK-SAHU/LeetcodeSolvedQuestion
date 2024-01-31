@@ -1,8 +1,8 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
         int[] ans= new int[2];
-        ans[0]= assignLast(nums, target);
-        ans[1]=assignFirst(nums, target);
+        ans[0]= assignFirst(nums, target);
+        ans[1]=assignLast(nums, target);
         return ans;
     }
     
@@ -12,6 +12,7 @@ class Solution {
         for(int i=0; i<n;i++){
             if(nums[i]==target){
                 found=i;
+                break;
             }
         }
         return found;
@@ -23,6 +24,7 @@ class Solution {
         for(int i=n-1; i>=0;i--){
             if(nums[i]==target){
                 found=i;
+                break;
             }
         }
         return found;
