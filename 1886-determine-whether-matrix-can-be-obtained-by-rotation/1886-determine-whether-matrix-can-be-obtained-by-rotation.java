@@ -22,42 +22,51 @@ class Solution {
             return false;
     }*/
     
+    public static void reverse(int mat[]){
+        int i=0;
+        int j = mat.length-1 ;
+        while(i<j){
+            int temp= mat[i];
+            mat[i]= mat[j];
+            mat[j]= temp;
+            i++;
+            j--;
+        }
+    }
+    
     public boolean findRotation(int[][] mat, int[][] target) {
      
         for(int i=0; i<4; i++){
-        if(isEqual(mat,target)) return true;
-        mat = rotate(mat);
+            if(isEqual(mat,target)) return true;
+            rotate(mat);
         }
         return false;
     }
     
     
-//     Function to rotate matrix by 90 degree using transpose
-    public static int[][] rotate(int[][] mat){
-          int[][] check = mat;   
-          int m = check.length;
-//             First transposing the matrix
-            for(int col=0; col<m; col++){
-                for(int row=1+col; row<m; row++){
-                    int temp = check[row][col];
-                    check[row][col] = check[col][row];
-                    check[col][row] = temp;
-                }
-            }
-        
-//             Now swapping coloumns like said in start
-            for(int col_1 = 0 , col_2=m-1; col_1<m/2; col_1++,col_2--){
-            for(int row= 0; row<m; row++){
-                int temp = check[row][col_1];
-                check[row][col_1] = check[row][col_2];
-                check[row][col_2] = temp;;
+    public static void rotate(int[][] mat){  
+        int m = mat.length;
+        for(int i=0; i<m; i++){
+            for(int j=i; j<m; j++){
+                int temp = mat[i][j];
+                mat[i][j] = mat[j][i];
+                mat[j][i] = temp;
             }
         }
-        return check;
+        for(int i=0; i<mat[0].length;i++){
+            reverse(mat[i]);
+        }
+        
+        // for(int col1 = 0 , col2=m-1; col1<m/2; col1++,col2--){
+        //     for(int row= 0; row<m; row++){
+        //         int temp = check[row][col_1];
+        //         check[row][col_1] = check[row][col_2];
+        //         check[row][col_2] = temp;;
+        //     }
+        // }
     }
     
-    
-//     Function to check whether two matrix are equal
+
     public static boolean isEqual(int[][] m1 , int[][] m2){
         if(m1.length != m2.length) return false;
         if(m1[0].length != m2[0].length) return false;
