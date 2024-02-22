@@ -17,10 +17,9 @@ class Solution {
                 swap(nums, pivot, end);
                 end--;
             }
-            
         }
     }
-    
+            
     public void swap(int[] nums, int i, int j){
         int temp= nums[i];
         nums[i]= nums[j];
