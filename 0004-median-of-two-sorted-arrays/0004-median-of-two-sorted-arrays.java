@@ -17,11 +17,11 @@ class Solution {
                 merged[start3++]=nums2[start2++];
             }
         }
-        for(int i=start1;i<n;i++){
-            merged[start3++]=nums1[i];
+        while(start1<n){
+            merged[start3++]=nums1[start1++];
         }
-        for(int i=start2;i<m;i++){
-            merged[start3++]=nums2[i];
+        while(start2<m){
+            merged[start3++]=nums2[start2++];
         }
         int merSt=0;
         int merEd=len-1;
