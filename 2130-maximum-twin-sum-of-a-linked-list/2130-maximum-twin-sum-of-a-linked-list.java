@@ -19,6 +19,7 @@ class Solution {
         }
         ListNode secondHalf= reverse(slow);
         slow.next=null;
+        
         ListNode p1=head;
         ListNode p2=secondHalf;
         int maxSum=0;
