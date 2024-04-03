@@ -10,7 +10,6 @@
  */
 class Solution {
     public int pairSum(ListNode head) {
-        ArrayList<Integer> list = new ArrayList<>();
         if(head==null) return 0;
         ListNode slow=head;
         ListNode fast= head;
@@ -20,23 +19,18 @@ class Solution {
         }
         ListNode secondHalf= reverse(slow);
         slow.next=null;
-        
         ListNode p1=head;
         ListNode p2=secondHalf;
+        int maxSum=0;
         while(p1!=null && p2!=null){
-             list.add(p1.val+p2.val);
+            int sum=p1.val+p2.val;
+            if(maxSum<sum){
+                maxSum=sum;
+            }
             p1=p1.next;
             p2=p2.next;
         }
-        
-        int max= list.get(0);
-        for(int i=1;i<list.size();i++){
-            int current= list.get(i);
-            if(current> max){
-                max=current;
-            }
-        }
-        return max;
+        return maxSum;
     }
     
     public ListNode reverse(ListNode head){
