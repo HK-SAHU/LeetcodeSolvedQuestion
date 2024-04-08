@@ -22,14 +22,10 @@ class Solution {
     	if (i%k == 0){
     		begin = reverse(begin, head.next);
     		head = begin.next;
-    	} else {
-    		head = head.next;
-    	}
+    	} else head = head.next;
     }
-    return dummyhead.next;
-    
+    return dummyhead.next;   
 }
-
     public ListNode reverse(ListNode begin, ListNode end){
         ListNode curr = begin.next;
         ListNode next, first;
