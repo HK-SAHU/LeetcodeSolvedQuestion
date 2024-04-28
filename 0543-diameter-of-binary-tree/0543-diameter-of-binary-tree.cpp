@@ -11,40 +11,16 @@
  */
 class Solution {
 public:
-//     pair<int, int> diameterFast(TreeNode* root){
-//         if(root==NULL){
-//             return {0,0};
-//         }
-//         pair<int, int>left= diameterFast(root->left);
-//         pair<int, int> right= diameterFast(root->right);
-//         int leftDiameter=left.first;
-//         int rightDiameter=right.first;
-//         int leftHeight=left.second;
-//         int rightHeight=right.second;
-        
-//         int currentHeight=max(leftHeight,rightHeight)+1;
-        
-//         int diameterThroughRoot=leftHeight + rightHeight;
-        
-//         int currentDiameter =max({leftDiameter, rightDiameter, diameterThroughRoot});
-        
-        
-//         return {currentDiameter,currentHeight};
-//     }
-    
     pair<int, int> diameterFast(TreeNode* root) {
     if (root == NULL) {
         return {0, 0};
     }
-
     pair<int, int> left = diameterFast(root->left);
     pair<int, int> right = diameterFast(root->right);
-
     int height = max(left.second, right.second) + 1;
     int dia = max(max(left.first, right.first), left.second + right.second);  // Changed line
     return {dia, height};
 }
-    
     int diameterOfBinaryTree(TreeNode* root) {
         return diameterFast(root).first;
     }
