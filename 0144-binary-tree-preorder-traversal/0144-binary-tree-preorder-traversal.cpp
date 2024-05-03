@@ -16,7 +16,6 @@ public:
         helper(root, ans);
         return ans;
     }
-    
     void helper(TreeNode* root, vector<int> &ans){  //nlr
         if(root==NULL) return;
         ans.push_back(root->val);
