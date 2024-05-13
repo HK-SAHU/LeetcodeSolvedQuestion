@@ -7,9 +7,7 @@ class Solution {
             int oneCount=0;
             for(int i=0; i<m;i++){
                 if(grid[i][j]==grid[i][0]) oneCount++;
-                else{
-                    
-                }
+                
             }
             ans= ans*2+ Math.max(oneCount, m-oneCount);
         }
