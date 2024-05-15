@@ -12,9 +12,7 @@ class Solution {
             }
         }
         return ans;
-        
     }
-    
     public int dfs (int[][] grid, int i, int j,int m,int n){
         if(i<0 || j<0 || i>=m || j>=n || grid[i][j]==0) return 0;
         int temp= grid[i][j];
