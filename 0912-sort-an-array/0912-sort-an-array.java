@@ -60,3 +60,50 @@ class Solution {
         return nums;
     }
 }
+
+//////////////////////////////////////////////////////////////// Quick Sort /////////////////////////////////////////////////////////////////////////
+
+// class Solution{
+    
+//     public static int partition(int[] nums, int start, int end){
+//         int i = start;    // i will take care of the smaller element than the pivot
+//         int pivot= nums[start];   // pivot as the first element of an array
+        
+//         for(int j= start+1; j<=end;j++){     // j will take care of the bigger element than the pivot
+//             if(nums[j]<=pivot){
+//                 i++;
+//                 int temp = nums[i];
+//                 nums[i]= nums[j];
+//                 nums[j]= temp;
+//             }
+//         }
+//         // to return or place the pivot at the correct position
+//         int temp= nums[start];
+//         nums[start]= nums[i];
+//         nums[i]= temp;
+        
+//         return i;
+//     }
+    
+    
+//     public static void quickSort(int[] nums, int start, int end){
+//         if(start< end){
+//             int m= partition(nums,start, end);
+//             quickSort(nums, start, m-1);
+//             quickSort(nums, m+1, end);
+//         }
+//     }
+    
+//     public int[] sortArray(int[] nums){
+//         if(nums==null || nums.length==0) return nums;
+//         for(int i=0;i<nums.length-1;i++){
+//             if(nums[i]==nums[i+1]){
+                
+//             }
+//             else break;
+//             return nums;
+//         }
+//         quickSort(nums, 0, nums.length-1);
+//         return nums;
+//     }
+// }
