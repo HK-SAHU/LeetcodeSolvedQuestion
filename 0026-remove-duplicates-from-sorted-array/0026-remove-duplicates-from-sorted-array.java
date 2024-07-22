@@ -13,10 +13,10 @@ class Solution {
             return 0;
         }
         
-        int i = 1; // pointer for the new position of unique elements
+        int i = 1; 
         for (int j = 1; j < nums.length; j++) {
             if (nums[j] != nums[i - 1]) {
-                nums[i] = nums[j]; // copy the new unique element to the next available position
+                nums[i] = nums[j]; // this will update the unique element in the same element
                 i++;
             }
         }
