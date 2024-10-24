@@ -1,20 +1,21 @@
 class Solution {
     
-    public static void queen(char[][] board, int row, List<List<String>> ans){
-        if(row== board.length){
-            ans.add(makeString(board));
+    public void queen(char[][] board, int row, List<List<String>> solution){
+        int n= board.length;
+        if(row==n){
+            solution.add(makeString(board));
             return;
         }
-        for(int col=0;col<board.length;col++){
-            if(isSafe(board,row, col)){
+        for(int col=0;col<n;col++){
+            if(isSafe(board, row, col)){
                 board[row][col]='Q';
-                queen(board, row+1, ans);
-                board[row][col]='.';   // backtrack
+                queen(board, row+1,solution);
+                board[row][col]='.';  // backtrack
             }
         }
     }
     
-    public static boolean isSafe(char[][] board, int row, int col){
+    public boolean isSafe(char[][] board, int row, int col){
         // check vertical row
         for(int i=0;i<row;i++){
             if(board[i][col]=='Q'){
@@ -50,14 +51,16 @@ class Solution {
     }
     
     public List<List<String>> solveNQueens(int n) {
-        char[][] board= new char[n][n];
-        for(int i=0; i<n;i++){
-            for(int j=0; j<n;j++){
+        
+        char[][] board = new char[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
                 board[i][j]='.';
             }
         }
-        List<List<String>> ans= new ArrayList<>();
-        queen(board, 0/*row*/, ans);
-        return ans;
+        
+        List<List<String>> solution= new ArrayList<>();
+        queen(board, 0, solution);
+        return solution;
     }
 }
