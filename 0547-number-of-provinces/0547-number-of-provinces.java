@@ -5,7 +5,8 @@ class Solution {
         int count=0;
         for(int i=0;i<n;i++){
             if(!vis[i]){
-                bfs(i, isConnected, vis);
+                // bfs(i, isConnected, vis);
+                dfs(i, isConnected, vis);
                 count++;
             }
         }
@@ -23,6 +24,15 @@ class Solution {
                     q.add(j);
                     vis[j]= true;
                 }
+            }
+        }
+    }
+    
+    public void dfs(int i, int[][] adj, boolean[] vis){
+        vis[i]= true;
+        for(int j=0; j<adj.length;j++){
+            if(adj[i][j]==1 && !vis[j]){
+                dfs(j, adj, vis);   
             }
         }
     }
